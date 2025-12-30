@@ -1,192 +1,73 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ta">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workout Log – Maathu</title>
-
-<style>
-:root{
-  --bg:#eef3f8;
-  --card:#ffffff;
-  --accent:#00b894;
-  --danger:#ff4757;
-  --warn:#f1c40f;
-  --text:#1c1c1c;
-}
-
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  display:flex;
-  justify-content:center;
-}
-
-.container{
-  width:100%;
-  max-width:420px;
-  padding:15px;
-}
-
-h2{
-  text-align:center;
-}
-
-.card{
-  background:var(--card);
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 3px 10px rgba(0,0,0,.1);
-}
-
-input{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:15px;
-}
-
-.status-box{
-  display:flex;
-  justify-content:space-between;
-  margin:10px 0;
-}
-
-.status-box button{
-  width:32%;
-  padding:12px 0;
-  font-size:16px;
-  font-weight:bold;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.done{background:var(--accent); color:#fff;}
-.medium{background:var(--warn);}
-.missed{background:var(--danger); color:#fff;}
-
-.action-btn{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.save{background:var(--accent); color:#fff;}
-.delete{background:var(--danger); color:#fff;}
-
-.info{
-  margin-top:10px;
-  font-size:14px;
-  text-align:center;
-  opacity:.8;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHM MURUGA COOL SERVICE CENTER</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#f5f7fa; color:#222; }
+    header { background:#0b5ed7; color:#fff; padding:20px; text-align:center; }
+    section { padding:20px; max-width:900px; margin:auto; }
+    .card { background:#fff; padding:16px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,.08); margin-bottom:16px; }
+    h2 { color:#0b5ed7; }
+    footer { background:#222; color:#fff; text-align:center; padding:12px; }
+    .btn { display:inline-block; padding:10px 16px; background:#0b5ed7; color:#fff; border-radius:8px; text-decoration:none; }
+    .gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
+    .gallery img { width:100%; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,.15); }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1>OHM MURUGA COOL SERVICE CENTER</h1>
+    <p>Cool Servicr</p>
+  </header>
 
-<div class="container">
-  <h2>🏋️ Workout Log</h2>
-
-  <div class="card">
-
-    <!-- Date -->
-    <input type="date" id="workoutDate">
-
-    <!-- Status -->
-    <div class="status-box">
-      <button class="done" onclick="selectStatus('✅ Done')">✅</button>
-      <button class="medium" onclick="selectStatus('🟡 Medium')">🟡</button>
-      <button class="missed" onclick="selectStatus('❌ Missed')">❌</button>
+  <section>
+      
+      
+      <div class="card">
+      <h2> Service</h2>
+      <div class="gallery">
+        <img src="photo1.jpg" alt="Photo" />
+        <img src="photo2.jpg" alt="Photo" />
+        <img src="photo3.jpg" alt="Photo " />
+      </div>
+      
+      
+    </div>
+      
+      
+    <div class="card">
+      <h2>எங்களை பற்றி</h2>
+      <p> நாங்கள் உங்கள் வீட்டிற்கே வந்து Service செய்து தருவோம் அனைத்து விதமான Service செய்து தருவோம் .</p>
     </div>
 
-    <!-- Actions -->
-    <button class="action-btn save" onclick="saveWorkout()">💾 Save / Update</button>
-    <button class="action-btn delete" onclick="deleteWorkout()">🗑️ Delete</button>
+    <div class="card">
+      <h2>எங்கள் சேவைகள்</h2>
+      <ul>
+        <li> AC service </li>
+        <li> Washing Machine Service </li>
+        <li> Fridge Service </li>
+        <li> Electric Service </li>
+        <li> Plumbing Service </li>
+      </ul>
+    </div>
 
-    <div class="info" id="infoText">📅 Date select செய்து workout choose பண்ணு</div>
+   
 
-  </div>
-</div>
+    <div class="card">
+      <h2>தொடர்பு கொ</>ள்ள</h2>
+      <p><strong>மொபைல்:</strong> 9944908882</p>
+      <p><strong>முகவரி:</strong> கடலூர் பாதிரிகுப்பம் பெட்ரோல் பங்க் Opposite</p>
+      <br>
+      <p>பண்ருட்டி </p>
+      <a class="btn" href="tel:8526627925">Call Now</a>
+    </div>
+  </section>
 
-<script>
-const dateInput = document.getElementById("workoutDate");
-const infoText = document.getElementById("infoText");
-
-let selectedStatus = "";
-
-/* Select workout */
-function selectStatus(status){
-  selectedStatus = status;
-  infoText.innerText = "Selected: " + status;
-}
-
-/* Load data when date changes (Edit mode) */
-dateInput.addEventListener("change", () => {
-  const date = dateInput.value;
-  let workouts = JSON.parse(localStorage.getItem("workouts")) || {};
-
-  if(workouts[date]){
-    selectedStatus = workouts[date];
-    infoText.innerText = "Saved workout: " + workouts[date];
-  }else{
-    selectedStatus = "";
-    infoText.innerText = "No workout saved for this date";
-  }
-});
-
-/* Save / Update workout */
-function saveWorkout(){
-  const date = dateInput.value;
-
-  if(!date){
-    alert("📅 Date select பண்ணு");
-    return;
-  }
-  if(selectedStatus === ""){
-    alert("🏋️ Workout status select பண்ணு");
-    return;
-  }
-
-  let workouts = JSON.parse(localStorage.getItem("workouts")) || {};
-  workouts[date] = selectedStatus;
-
-  localStorage.setItem("workouts", JSON.stringify(workouts));
-  alert("✅ Workout saved for " + date);
-}
-
-/* Delete workout */
-function deleteWorkout(){
-  const date = dateInput.value;
-  if(!date){
-    alert("📅 Date select பண்ணு");
-    return;
-  }
-
-  let workouts = JSON.parse(localStorage.getItem("workouts")) || {};
-
-  if(!workouts[date]){
-    alert("❌ This date-ல data இல்லை");
-    return;
-  }
-
-  delete workouts[date];
-  localStorage.setItem("workouts", JSON.stringify(workouts));
-
-  selectedStatus = "";
-  infoText.innerText = "🗑️ Workout deleted for " + date;
-}
-</script>
-
+  <footer>
+    <p>© 2025 OHM MURUGA COOL SERVICE CENTER. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
